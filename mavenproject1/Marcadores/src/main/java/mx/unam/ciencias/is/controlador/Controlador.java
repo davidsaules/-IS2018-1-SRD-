@@ -98,10 +98,34 @@ public class Controlador {
     @RequestMapping(value="/eliminaMarcador", method = RequestMethod.GET)
     public String eliminaMarcador(HttpServletRequest request){
         //Aqui va tu codigo
+        Double latitud = Double.parseDouble(request.getParameter("latitud"));
+        Double longitud = Double.parseDouble(request.getParameter("longitud"));  
+        Marcador ma = marcador_db.getMarcador(latitud, longitud);
+        if(ma!=null){
+            marcador_db.eliminar(ma);
+        }
+        return "redirect:/";
     }
     
     @RequestMapping(value= "/actualizar", method = RequestMethod.POST)
     public String actualizar(HttpServletRequest request){
         //Aqui va tu codigo   
+        Integer id = Integer.parseInt(request.getParameter("id"));
+        Marcador ma = marcador_db.getMarcadorId(id);
+        Double latitud = Double.parseDouble(request.getParameter("latitud"));
+        Double longitud = Double.parseDouble(request.getParameter("longitud"));
+        String nombre = request.getParameter("nombre");
+        String descripcion = request.getParameter("descripcion");
+        if(nombre!=null)
+            ma.setNombreM(nombre);
+        if(latitud!=null)
+            ma.setLatitud(latitud);
+        if(longitud!=null)
+            ma.setLongitud(longitud);
+        if(descripcion!=null)
+            ma.setDescripcion(descripcion);
+        
+        marcador_db.actualizar(ma);     
+        return "redirect:/";
     }
 }

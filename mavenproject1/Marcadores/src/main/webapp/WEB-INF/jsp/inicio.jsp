@@ -20,7 +20,7 @@
         
         <div class="contenedor">
             <header>
-                <form action="/Ejercicio1-Marcadores/agregaMarcador"> 
+                <form action="/Marcadores/agregaMarcador"> 
                     <button id="btnSes" class="btn btn-primary btn-lg" >Agrega un marcador</button>
                 </form>
             </header>
@@ -42,7 +42,7 @@
                     </thead>
                     <c:forEach var="m" items="${marcadores}">
                         <tbody>
-                            <th>${m.nombre}</th>
+                            <th>${m.nombreM}</th>
                             <th>${m.latitud}</th>
                             <th>${m.longitud}</th>
                             <th>
@@ -93,7 +93,7 @@
             
             markerName = [
                 <c:forEach var="s" items="${marcadores}" varStatus="status">
-                "${s.nombre}",
+                "${s.nombreM}",
                 </c:forEach>];
             
             markerDescr = [
