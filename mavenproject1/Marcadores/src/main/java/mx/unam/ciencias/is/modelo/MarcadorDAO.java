@@ -22,7 +22,7 @@ public class MarcadorDAO {
     private SessionFactory sessionFactory;
     
     /**
-     * Inicialisamos la sesion a la base de datos.
+     * Inicializamos la sesion a la base de datos.
      * @param sessionFactory 
      */
     public void setSessionFactory(SessionFactory sessionFactory) {
@@ -136,9 +136,9 @@ public class MarcadorDAO {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "FROM Marcador Where  marcador_id = :id1";
+            String hql = "FROM Marcador Where  marcador_id = :id";
             Query query = session.createQuery(hql);
-            query.setParameter("id2                 ", id);
+            query.setParameter("id", id);
             result = (Marcador)query.uniqueResult();
             tx.commit();
         }
