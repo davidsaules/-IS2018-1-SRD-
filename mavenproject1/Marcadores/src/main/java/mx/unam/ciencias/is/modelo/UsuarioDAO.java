@@ -113,7 +113,8 @@ public class UsuarioDAO {
     }
      /**
      * Actualiza el marcardor en la base de datos
-     * @param marcador con los nuevos valores 
+     * @param usuario
+     * 
      */
     public void actualizar(Usuario usuario) {
         //aqui va tu codigo

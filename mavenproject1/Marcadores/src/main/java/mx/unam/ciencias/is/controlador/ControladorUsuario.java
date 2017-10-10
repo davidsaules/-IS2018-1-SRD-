@@ -22,6 +22,11 @@ public class ControladorUsuario {
     @Autowired
     private UsuarioDAO usuario_bd;
     
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String newInicio(){
+        return "newInicio";
+    }
+    
     @RequestMapping(value =  "/guardaUsuario", method = RequestMethod.GET)
     public String guardaUsuario(HttpServletRequest request){
         String nickname = request.getParameter("nickname");
